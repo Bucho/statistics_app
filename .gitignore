@@ -1,0 +1,12 @@
+#eclipse settings
+.project
+#Ignore autotest file
+.autotest
+#ignore thumbnails created by windows
+Thumbs.db
+#ignore database local settings
+database.yml
+#ignore log and temp files
+*.log
+[Tt]mp
+*.tmp_*
