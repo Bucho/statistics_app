@@ -38,3 +38,14 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+class ActionController::TestCase
+  def self.should_require_login_in(method, action)
+    context "#{method} to #{action} as anonymous" do
+      setup do
+        send(method, action)
+      end
+      should_redirect_to("new_user_session_path") { new_user_session_path }
+    end
+  end
+end

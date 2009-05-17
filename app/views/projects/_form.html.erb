@@ -1,0 +1,16 @@
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :url %><br />
+  <%= f.text_field :url %>
+</p>
+<p>
+  <%= f.label :secret_key %><br />
+  <%= f.text_field :secret_key %>
+</p>
+<p>
+  <%= f.label :periodicity %><br />
+  <%= f.select :periodicity, [[1,1],[5,5],[10,10],[30,30],[60,60],[720,720]] %>
+</p>

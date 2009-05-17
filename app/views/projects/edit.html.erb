@@ -1,0 +1,8 @@
+<h2>Редактирование</h2>
+
+<% form_for(@project, :url => project_path(@project)) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :locals => {:f => f} %>
+  <%= submit_tag "Обновить" -%>
+  <%= link_to "Отмена", projects_path -%>
+<% end %>

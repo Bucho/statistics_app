@@ -1,10 +1,34 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  def test_new
-    get :new
-    assert_template 'new'
+  setup :activate_authlogic # run before tests are executed
+  
+  #INDEX
+  context "on GET to :index" do
+      setup do
+        get :index
+      end
+  
+      should_respond_with :redirect
+    end
+
+  #SHOW
+  context "on GET to :show" do
+    setup do
+      get :show, :id => users(:one).username
+    end
+  
+    should_respond_with :redirect
   end
+    
+  #NEW
+  context "on GET to :new" do
+    setup do
+        get :new
+      end
+  
+      should_respond_with :redirect
+    end
   
   #CREATE
   context "on POST to :create" do
@@ -17,11 +41,7 @@ class UsersControllerTest < ActionController::TestCase
                                 }
     end
 
-    should_assign_to :user
     should_respond_with :redirect
-    should "set flash" do
-      assert_not_nil flash
-    end
   end
 
   context "on POST to :create with invalid params" do
@@ -34,27 +54,55 @@ class UsersControllerTest < ActionController::TestCase
                                 }
     end
 
-    should_assign_to :user
-    should_not_set_the_flash
-    should_render_template :new
+    should_respond_with :redirect
   end  
   
-  #TODO fix this test (Egor)
-#  def test_edit
-#    get :edit, :id => User.first.id 
-#    assert_template 'edit'
-#  end
-  
-  #TODO fix user authentication (Egor)
-#  def test_update_invalid
-#    User.any_instance.stubs(:valid?).returns(false)
-#    put :update, :id => User.first
-#    assert_template 'edit'
-#  end
+  #EDIT
+  context "on GET to :edit" do
+    setup do
+      UserSession.create(users(:one))
+      get :edit, :id => "bla"
+    end
 
-#  def test_update_valid
-#    User.any_instance.stubs(:valid?).returns(true)
-#    put :update, :id => User.first
-#    assert_redirected_to root_url
-#  end
+    should_assign_to :user
+  end
+  
+  #UPDATE
+  context "on PUT to :update" do
+    setup do
+      UserSession.create(users(:one))
+      put :update, :id => "fake id", :user => { :username => "Vasya" }
+    end
+  
+    should_assign_to :user
+    should_respond_with :redirect
+    should "set flash" do
+      assert !flash.blank?
+    end
+  end
+    
+  context "on PUT to :update with not walid param" do
+    setup do
+      UserSession.create(users(:one))
+      put :update, :id => "fake id", :user => {:username => nil}
+    end
+  
+    should_assign_to :user
+    should_respond_with :success
+    should_render_template :edit
+    should_not_set_the_flash
+  end  
+
+  #DESTROY
+  context "on DELETE to :destroy" do
+    setup do
+      UserSession.create(users(:one))
+      delete :destroy, :id => "fake id"
+    end
+    
+    should_change "User.count", :by => -1
+    should_assign_to :user
+    should_respond_with :redirect
+    should_not_set_the_flash
+  end
 end

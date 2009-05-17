@@ -32,7 +32,7 @@ class UserSessionsControllerTest < ActionController::TestCase
     should_assign_to :user_session
     should_respond_with :redirect
     should "set flash" do
-      assert_not_nil flash
+      assert !flash.blank?
     end
   end
   

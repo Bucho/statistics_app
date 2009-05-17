@@ -1,0 +1,19 @@
+<h1>Статистика</h1>
+<%= link_to 'New project', new_project_path %>
+<table width="100%">
+	<tr>
+  		<th>Title</th>
+		<th>Data</th>
+		<th></th>
+  	</tr>
+	<% for project in @projects %>
+	<tr>
+		<td><%= project.title %></td>
+		<td><%= project.data %></td>
+		<td>
+			<%= link_to 'Edit', edit_project_path(project) %>
+			<%= link_to 'Destroy', project_path(project), :method => :delete, :confirm => 'Are you sure?' %>
+		</td>
+	</tr>
+	<% end %>
+</table>

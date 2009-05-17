@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
   
+  map.resources :projects
+  
 #  map.resourses :articles
 #  map.resourses :comments
   map.root :controller => "user_sessions", :action => "new"

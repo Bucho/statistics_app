@@ -1,4 +1,5 @@
 one:
+  id: 1
   username: MyString
   email: MyString@my.com
   crypted_password: 64af36cf1f98e2d2d1aac8ad1dea1743502952f8b4fed8357914cd5f45500670d3501966621a5de3469bfbaf7b7d0655d3fc7620e355fc0069ad6035a9005835 #1234
