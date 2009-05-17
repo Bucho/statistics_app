@@ -1,9 +1,6 @@
 one:
   username: MyString
-  email: MyString
-  password: MyString
-
-two:
-  username: MyString
-  email: MyString
-  password: MyString
+  email: MyString@my.com
+  crypted_password: 64af36cf1f98e2d2d1aac8ad1dea1743502952f8b4fed8357914cd5f45500670d3501966621a5de3469bfbaf7b7d0655d3fc7620e355fc0069ad6035a9005835 #1234
+  password_salt: HrbIUe3dgQEs8Zye32pg
+  persistence_token: 41a6fca0b2ff407681ca804ebd4f913330347fba4b927a2e253336c912440a2b472eeedb8ddc3ab9cd0e8d480aad621ce7e579398e899dfc98fe87e9b5f32f94
