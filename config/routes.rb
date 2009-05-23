@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
   
-  map.resources :projects
+  map.resources :projects, :collection => { :updated => :get }
   
 #  map.resourses :articles
 #  map.resourses :comments

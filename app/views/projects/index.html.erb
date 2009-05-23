@@ -1,19 +1,21 @@
 <h1>Статистика</h1>
 <%= link_to 'New project', new_project_path %>
-<table width="100%">
-	<tr>
-  		<th>Title</th>
-		<th>Data</th>
-		<th></th>
-  	</tr>
+<div id="projects">
 	<% for project in @projects %>
-	<tr>
-		<td><%= project.title %></td>
-		<td><%= project.data %></td>
-		<td>
-			<%= link_to 'Edit', edit_project_path(project) %>
-			<%= link_to 'Destroy', project_path(project), :method => :delete, :confirm => 'Are you sure?' %>
-		</td>
-	</tr>
+		<div id="project_<%= project.id -%>">
+			<%= render :partial => "chunk", :locals => { :project => project } %>
+		</div>
 	<% end %>
-</table>
+</div>
+<script>
+	new PeriodicalExecuter(function(pe) {
+		new Ajax.Request("<%= updated_projects_path -%>", {
+			method: 'get',
+			onSuccess: function(transport) {
+				transport.responseText.evalScripts();
+//				alert(transport.responseText)
+			}
+		});
+
+	}, 20);
+</script>

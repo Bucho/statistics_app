@@ -41,6 +41,15 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
   
+  def updated
+    @projects = Project.find(:all, :conditions => ["updated_at > ?", Time.now - 60])
+    
+    respond_to do |format|
+      format.html
+      format.js {render :layout => false}
+    end
+  end
+  
   private
   
   def find_project

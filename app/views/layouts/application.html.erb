@@ -5,6 +5,7 @@
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application' %>
     <%= yield(:head) %>
+	<%= javascript_include_tag :defaults %>
   </head>
   <body>
     <div id="container">

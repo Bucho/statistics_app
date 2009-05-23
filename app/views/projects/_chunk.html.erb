@@ -1,0 +1,3 @@
+<h2><%= project.title.titleize %></h2>
+<p><%= project.updated_at %></p>
+<%= parser_stat(ActiveSupport::JSON.decode(project.data)) unless project.data.blank? %>

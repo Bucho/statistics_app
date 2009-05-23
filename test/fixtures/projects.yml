@@ -1,7 +1,8 @@
 one:
   id: 1
   title: rubyjobs
-  url: http://rubyjobs.ru
+  url: http://rubyjobs.ru/statistics
   periodicity: 30
   secret_key: asdf1234jhkl3456hjkl2345gfhkxcvb890345jkhjsdfg
   data: 
+  updated_at: <%= 2.days.ago.to_s :db %>
