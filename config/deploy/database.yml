@@ -38,8 +38,8 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: rubyflow_production
-  username: rubyflow
-  password: ZvH465R8xVhGVXuW
+  database: statistics_app_production
+  username: statistics_app
+  password: wbFf3CUUcEChc4fn
   host: localhost
   socket: /var/run/mysqld/mysqld.sock
