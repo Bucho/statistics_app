@@ -6,3 +6,12 @@ one:
   secret_key: asdf1234jhkl3456hjkl2345gfhkxcvb890345jkhjsdfg
   data: 
   updated_at: <%= 2.days.ago.to_s :db %>
+  
+two:
+  id: 2
+  title: rubyflow
+  url: http://rubyflow.ru/statistics
+  periodicity: 30
+  secret_key: asdf1234jhkl3456hjkl2345gfhkxcvb890345jkhjsdfg
+  data: 
+  updated_at: <%= Time.now.to_s :db %>  

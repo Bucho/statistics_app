@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
     @projects = Project.find(:all, :conditions => ["updated_at > ?", Time.now - 60])
     
     respond_to do |format|
-      format.html
+      format.html {redirect_to :action => :index}
       format.js {render :layout => false}
     end
   end

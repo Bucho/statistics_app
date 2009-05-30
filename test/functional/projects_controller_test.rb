@@ -135,5 +135,23 @@ class ProjectsControllerTest < ActionController::TestCase
       should_respond_with :redirect
       should_not_set_the_flash
     end
+    
+    #UPDATED
+    context "on GET to :updated html" do
+      setup do
+        get :updated
+      end
+  
+      should_respond_with :redirect
+    end
+    
+    context "on GET to :updated AJAX" do
+      setup do
+        xhr :get, :updated
+      end
+  
+      should_assign_to :projects
+      should_respond_with :success
+    end
   end
 end
