@@ -1,4 +1,4 @@
-set :application, "statistics.hastrain.com"
+set :application, "statistics.hashtrain.com"
 role :app, application
 role :web, application
 role :db,  application, :primary => true
