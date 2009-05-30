@@ -9,7 +9,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-#set :scm_passphrase, "1831224" #This is your custom users password
+#set :scm_passphrase, "1831224" This is your custom users password
 
 set :repository, "git@github.com:Bucho/statistics_app.git"
 set :branch, "master"
